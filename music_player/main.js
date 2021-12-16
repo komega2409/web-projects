@@ -8,11 +8,16 @@ const cdThumb = $('.cd-thumb');
 const audio = $('#audio');
 const playBtn = $('.btn-toggle-play');
 const progest = $('#progest');
-
+const nextBtn = $('.btn-next');
+const prevBtn = $('.btn-prev');
+const randomBtn = $('.btn-random');
+const repeatBtn = $('.btn-repeat');
 
 const app = {
     currentIndex: 0,
     isPlaying: false,
+    isRandom: false,
+    isRepeat: false,
     songs: [
         {
             name: 'Beautiful In White',
@@ -163,8 +168,48 @@ const app = {
         // Xử lý khi tua bài hát
         progress.onchange = function(e) {
             const seekTime = e.target.value / 100 * audio.duration;
-            console.log(seekTime);
             audio.currentTime = seekTime;
+        }
+
+        // Xử lý khi next bài hát
+        nextBtn.onclick = function() {
+            if (_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.nextSong()
+            }
+            audio.play();
+        }
+
+        // Xử lý khi prev bài hát
+        prevBtn.onclick = function() {
+            if (_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.prevSong();
+            }
+            audio.play();
+        }
+
+        // Xử lý khi bật / tắt random bài hát
+        randomBtn.onclick = function() {
+            _this.isRandom = !_this.isRandom;
+            randomBtn.classList.toggle('active', _this.isRandom);
+        }
+
+        // Xử lý bài hát khi hết bài
+        audio.onended = function() {
+            if (_this.isRepeat) {
+                audio.play();
+            } else {
+                nextBtn.click();
+            }
+        }
+
+        // Xử lý khi bật / tắt repeat bài hát
+        repeatBtn.onclick = function() {
+            _this.isRepeat = !_this.isRepeat;
+            repeatBtn.classList.toggle('active', _this.isRepeat);
         }
     },
 
@@ -172,6 +217,31 @@ const app = {
         heading.textContent = this.currentSong.name;
         cdThumb.style.backgroundImage = `url(${this.currentSong.image})`;
         audio.src = this.currentSong.path;
+    },
+
+    nextSong: function () {
+        this.currentIndex++;
+        if (this.currentIndex >= this.songs.length) {
+            this.currentIndex = 0;
+        }
+        this.loadCurrentSong();
+    },
+
+    prevSong: function() {
+        this.currentIndex--;
+        if (this.currentIndex < 0) {
+            this.currentIndex = this.songs.length - 1;
+        }
+        this.loadCurrentSong();
+    },
+
+    playRandomSong: function() {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * this.songs.length);
+        } while (newIndex === this.currentIndex)
+        this.currentIndex = newIndex;
+        this.loadCurrentSong();
     },
 
     start: function() {
