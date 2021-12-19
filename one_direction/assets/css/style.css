@@ -1,0 +1,95 @@
+/* Reser css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+1. Vị trí
+2. Kích thước
+3. Màu sắc
+4. Kiểu dáng (kiểu chữ, hình tròn, hình vuông,...)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+html {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#main {
+    
+}
+
+#header {
+    height: 50px;
+    background-color: #000;
+}
+
+#nav, .subnav {
+    list-style-type: none;    
+}
+
+#nav > li {
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav > li > a {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+#nav li a {
+    text-decoration: none;
+    line-height: 50px;
+    padding: 0 24px;
+    display: block;
+}
+
+#nav .subnav a {
+    color: #000;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#nav li:hover .subnav {
+    display: block;
+}
+
+#nav > li:hover > a,
+#nav .subnav li:hover a {
+    background-color: #ccc;
+    color: #000;
+}
+
+#nav .subnav {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+}
+
+#nav .nav-arrow-down {
+    font-size: 10px;
+}
+
+#slider {
+    min-height: 500px;
+    background-color: rgb(73, 73, 73);
+}
+
+#content {
+
+}
+
+#footer {
+
+}
