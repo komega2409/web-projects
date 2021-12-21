@@ -25,6 +25,31 @@ html {
 #header {
     height: 50px;
     background-color: #000;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#header .search-btn {
+    float: right;
+    padding: 0 21px;
+}
+
+#header .search-icon {
+    color: #fff;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+#header .search-btn:hover {
+    cursor: pointer;
+    background-color: rgb(196, 8, 8)
+}
+
+#nav {
+    display: inline-block;
 }
 
 #nav, .subnav {
@@ -82,12 +107,58 @@ html {
 }
 
 #slider {
-    min-height: 500px;
-    background-color: rgb(73, 73, 73);
+    position: relative;
+    margin-top: 50px;
+    padding-top: 50%;
+    background: url('/assets/img/slider/One-Direction-1.jpg') no-repeat top center / cover;
+}
+
+#slider .text-content {
+    position: absolute;
+    bottom: 48px;
+    color: #fff;
+    text-align: center;
+    /* left: 50%;
+    transform: translateX(-50%) */
+    width: 100%;
+}
+
+#slider .text-heading {
+    font-size: 30px;
+    margin-bottom: 24px;
+}
+
+#slider .text-description {
+    font-size: 18px;
 }
 
 #content {
 
+}
+
+#content .content-section {
+    width: 800px;
+    padding: 64px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .section-heading {
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+#content .section-sub-heading {
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic;
+    color: rgb(139, 139, 139);
+}
+
+#content .about-text {
+    margin-top: 25px;
+    text-align: justify;
+    line-height: 1.4;
 }
 
 #footer {
