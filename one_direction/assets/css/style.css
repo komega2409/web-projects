@@ -18,6 +18,10 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
+.text-white {
+    color: #fff !important;
+}
+
 #main {
     
 }
@@ -161,6 +165,68 @@ html {
     line-height: 1.4;
 }
 
+#content .members-list {
+    padding-top: 48px;
+    overflow: hidden;
+}
+
+#content .member-item {
+    float: left;
+    width: calc(100% / 5);
+    height: 240px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#content .member-name {
+    font-size: 17px;
+    font-weight: 1000;
+}
+
+#content .member-img {
+    margin-top: 15px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+/* Tour section */
+.tour-section {
+    background-color: #000;
+}
+
+.tickets-list {
+    list-style: none;
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.tickets-list li {
+    padding: 11px 16px;
+    border: solid 1px #ddd;
+    color: #757575;
+}
+
+.tickets-list .sold-out {
+    background-color: #f44336;
+    color: #fff;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+
+.tickets-list .quantity {
+    float: right;
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    border-radius: 50%;
+    line-height: 24px;
+    text-align: center;
+    color: #fff;
+    margin-top: -1px;
+    margin-right: 30px;
+}
+
+/* Footer section */
 #footer {
 
 }
